@@ -4,7 +4,7 @@ This project is a simple Lumen-based API with a single endpoint designed to supp
 
 ## Project Overview
 
-The Commission Calculator API is built using Lumen, a lightweight PHP framework for creating fast APIs. The API has a single endpoint to calculate commissions based on revenue and different commission models. The commission models are stored in a database, so they can be updated easily without changing the code.
+The Commission Calculator API is built using Lumen PHP framework. The API has a single endpoint to calculate commissions based on revenue and different commission models. The commission models are stored in a database, so they can be updated easily without changing the code.
 
 This API can be useful for businesses that need to calculate sales commissions based on different revenue tiers and commission structures.
 
