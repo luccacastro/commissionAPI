@@ -19,6 +19,13 @@ console_command = 'php /var/www/html/artisan tinker'
   LOG_STDERR_FORMATTER = 'Monolog\Formatter\JsonFormatter'
   SESSION_DRIVER = 'cookie'
   SESSION_SECURE_COOKIE = 'true'
+  DB_CONNECTION = "pgsql"
+  DB_HOST = "db-pg.internal"
+  DB_DATABASE= "dbpg"
+  DB_PASSWORD="MNGM9qhdhaFgI2Z"
+  DB_PORT = 5432
+
+
 
 [http_service]
   internal_port = 8080
