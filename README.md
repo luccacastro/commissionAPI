@@ -32,7 +32,7 @@ This API can be useful for businesses that need to calculate sales commissions b
    ```
 
 ## Usage
-- **Endpoint**: `/calculate`
+- **Endpoint**: `/calculate-commission`
 - **Method**: `POST`
 - **Request Parameters**:
   - `revenue` (required, numeric): The revenue amount to calculate commission on.
