@@ -1,26 +1,60 @@
-# Lumen PHP Framework
+# Commission Calculator API
 
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
-[![Total Downloads](https://img.shields.io/packagist/dt/laravel/lumen-framework)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Stable Version](https://img.shields.io/packagist/v/laravel/lumen-framework)](https://packagist.org/packages/laravel/lumen-framework)
-[![License](https://img.shields.io/packagist/l/laravel/lumen)](https://packagist.org/packages/laravel/lumen-framework)
+This project is a simple Lumen-based API with a single endpoint designed to support a commission calculator application. It provides functionality to calculate commissions based on revenue and various commission models.
 
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
+## Project Overview
 
-> **Note:** In the years since releasing Lumen, PHP has made a variety of wonderful performance improvements. For this reason, along with the availability of [Laravel Octane](https://laravel.com/docs/octane), we no longer recommend that you begin new projects with Lumen. Instead, we recommend always beginning new projects with [Laravel](https://laravel.com).
+The Commission Calculator API is built using Lumen, a lightweight PHP framework for creating fast APIs. The API has a single endpoint to calculate commissions based on revenue and different commission models. The commission models are stored in a database, so they can be updated easily without changing the code.
 
-## Official Documentation
+This API can be useful for businesses that need to calculate sales commissions based on different revenue tiers and commission structures.
 
-Documentation for the framework can be found on the [Lumen website](https://lumen.laravel.com/docs).
+## Features
+- **Single Endpoint**: The API features a `/calculate-commission` endpoint that accepts revenue and model type as input, then returns the calculated commission and a breakdown of the tiers.
+- **Commission Models**: Dynamic calculation of commissions using different models that are easily manageable through a database.
+- **Breakdown of Tiers**: Returns a detailed breakdown showing commission percentages for different revenue tiers.
 
-## Contributing
+## Setup
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/luccacastro/commissionAPI
+   ```
+2. **Install dependencies**:
+   ```bash
+   composer install
+   ```
+3. **Run Migrations**:
+   ```bash
+   php artisan migrate
+   ```
+4. **Seed Database**:
+   ```bash
+   php artisan db:seed --class=CommissionModelsSeeder
+   ```
 
-Thank you for considering contributing to Lumen! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Usage
+- **Endpoint**: `/calculate`
+- **Method**: `POST`
+- **Request Parameters**:
+  - `revenue` (required, numeric): The revenue amount to calculate commission on.
+  - `modelType` (required, string): The type of commission model to use.
 
-## Security Vulnerabilities
+### Example Request
+```json
+{
+  "revenue": 25000,
+  "modelType": "default"
+}
+```
 
-If you discover a security vulnerability within Lumen, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Lumen framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Example Response
+```json
+{
+  "commission": 3500,
+  "breakdown": [
+    { "label": "£15k - £20k (25%)", "limit": 20000, "rate": 0.25 },
+    { "label": "£10k - £15k (20%)", "limit": 15000, "rate": 0.20 },
+    { "label": "£5k - £10k (15%)", "limit": 10000, "rate": 0.15 },
+    { "label": "£0 - £5k (10%)", "limit": 5000, "rate": 0.10 }
+  ]
+}
+```
