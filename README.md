@@ -51,10 +51,10 @@ This API can be useful for businesses that need to calculate sales commissions b
 {
   "commission": 3500,
   "breakdown": [
-    { "label": "£15k - £20k (25%)", "limit": 20000, "rate": 0.25 },
-    { "label": "£10k - £15k (20%)", "limit": 15000, "rate": 0.20 },
-    { "label": "£5k - £10k (15%)", "limit": 10000, "rate": 0.15 },
-    { "label": "£0 - £5k (10%)", "limit": 5000, "rate": 0.10 }
+    { "label": "£15k - £20k (25%)", "limit": 20000, "value": "5100" "rate": 0.25 },
+    { "label": "£10k - £15k (20%)", "limit": 15000, "value": "2300", "rate": 0.20 },
+    { "label": "£5k - £10k (15%)", "limit": 10000, "value": "600", "rate": 0.15 },
+    { "label": "£0 - £5k (10%)", "limit": 5000, "value": "5300", "rate": 0.10 }
   ]
 }
 ```
